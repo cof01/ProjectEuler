@@ -1,5 +1,16 @@
 # coding:utf-8
 import math
+import copy
+
+def pandigital(digit,seq1,seq2=[]):
+  iter1 = map(str,seq1)
+  if seq2:
+    iter2 = map(str,seq2)
+  else:
+    iter2 = copy.deepcopy(iter1)
+  for d in range(digit-1):
+    iter1 = (x+y for x in iter1 for y in iter2 if not (y in x))
+  return iter1
 
 def get_prime_boolean(max):
     bool = [False,False]+[True]*(max-1)
@@ -17,10 +28,35 @@ def get_prime_list(bool):
     length = len(bool)
     return [i for i in range(2,length) if bool[i]]
 
+def prime_generator(max):
+    bool = get_prime_boolean(max)
+    length = len(bool)
+    return (i for i in range(2,length) if bool[i])
+
 def get_primes(max):
     bool = get_prime_boolean(max)
     list = get_prime_list(bool)
     return {'bool':bool,'list':list}
+    
+def is_prime(num,pri):
+  num = int(num)
+  if num < len(pri['bool']):
+    return pri['bool'][num]
+
+  M = (num**0.5)+1
+  #print num
+  for p in pri['list']:
+    if p > M:
+      return True
+    if (num % p) == 0:
+      return False
+
+  p = pri['list'][-1]+2
+  while p<M:
+    if (num % p) == 0:
+      return False
+    p += 2
+  return True
 
 def factor(num,pri):
     ret=[]
@@ -76,6 +112,12 @@ def gcd(m,n):
 
 def lcm(m,n):
   return m*n/gcd(m,n)
+
+def circle(num):
+  s = str(num)
+  for c in range(len(s)):
+    s = s[1:]+s[0]
+    yield int(s)
 
 def factor_seq(max):
   ret = [[0]]
@@ -147,6 +189,42 @@ def test_get_prime_boolean2():
         False, False, True, False, False #21 to 25
     ]
     return chk(output, expected, "test_get_prime_boolean2() error")
+
+def test_is_prime1():
+    input1 = 79428312331
+    input2 = get_primes(10**6)
+    output = is_prime(input1,input2)
+    expected = False
+    return chk(output, expected, "test_is_prime1() error")
+    
+def test_is_prime2():
+    input1 = 7220755667
+    input2 = get_primes(10**6)
+    output = is_prime(input1,input2)
+    expected = True
+    return chk(output, expected, "test_is_prime2() error")
+ 
+def test_is_prime3():
+    input1 = 7942831233787435516541
+    input2 = get_primes(10**6)
+    output = is_prime(input1,input2)
+    expected = False
+    return chk(output, expected, "test_is_prime3() error")
+
+def test_is_prime4():
+    input1 = 14426687446393
+    input2 = get_primes(10**6)
+    output = is_prime(input1,input2)
+    expected = False
+    return chk(output, expected, "test_is_prime4() error")
+
+def test_is_prime5():
+    input1 = 24639229
+    input2 = get_primes(10**6)
+    output = is_prime(input1,input2)
+    expected = True
+    return chk(output, expected, "test_is_prime5() error")
+
 
 def test_get_prime_list1():
     input = [
@@ -312,7 +390,12 @@ def tests():
         test_factor_dict1,
         test_factor_dict2,
         test_lcm_dict,
-        test_time_get_prime_boolean
+        test_time_get_prime_boolean,
+        test_is_prime1,
+        test_is_prime2,
+        test_is_prime3,
+        test_is_prime4,
+        test_is_prime5
     ]
     fail = 0
     for test in test_list:
