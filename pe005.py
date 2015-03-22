@@ -8,7 +8,7 @@ def main():
   i = 6
   for j in range(5,max+1):
     i = lcm(i,j)
-  #print i
+  print i
 
 
 def main2():
@@ -40,6 +40,4 @@ def main3():
   
 if __name__ == '__main__':
   num = 10000
-  exe('main()',num)
-  exe('main2()',num)
-  exe('main3()',num)
+  main()

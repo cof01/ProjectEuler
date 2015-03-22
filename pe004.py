@@ -12,7 +12,7 @@ def main():
       if str(k)==str(k)[::-1]: max=k
       j -= 1
     (i,j)=(i-1,999)
-  #print max
+  print max
   
 def while1():
     (i,j)=(999,999)
@@ -104,5 +104,6 @@ def erat_approach():
   
 if __name__ == '__main__':
   num = 100
-  for func in ['main()','while1()','while2()','for1()','for2()','for3()','from999999()','erat_approach()']:
-    exe(func,num)
+  main()
+  #for func in ['main()','while1()','while2()','for1()','for2()','for3()','from999999()','erat_approach()']:
+  #  exe(func,num)
