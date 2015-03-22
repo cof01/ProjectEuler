@@ -1,9 +1,0 @@
-03-18 22:50 root         INFO     ==========main start==========
-03-18 22:50 root         INFO     main start. args:(), kwargs:{}
-03-18 22:52 root         INFO     ==========main start==========
-03-18 22:52 root         INFO     main start. args:(), kwargs:{}
-03-18 22:52 root         INFO     ==========main start==========
-03-18 22:52 root         INFO     main start. args:(), kwargs:{}
-03-18 22:52 root         INFO     main finish. result:None
-03-18 22:52 root         INFO     ==========main finish==========
-03-18 22:52 root         INFO     wrapper finish. time:0.15200

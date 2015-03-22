@@ -57,6 +57,12 @@ def is_prime(num,pri):
       return False
     p += 2
   return True
+  
+def make_is_prime(max):
+  pri = get_primes(max)
+  def call_is_prime(n):
+    return is_prime(n,pri)
+  return call_is_prime
 
 def factor(num,pri):
     ret=[]
