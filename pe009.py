@@ -1,3 +1,6 @@
+from mytools import get_time
+
+@get_time
 def cof2():
   target=1000
   sq = [x**2 for x in range(0,target)] #create 

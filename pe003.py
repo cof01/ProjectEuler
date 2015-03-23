@@ -1,7 +1,8 @@
-from mytime import exe
+from mytools import get_time
 import mymath
 import math
 
+@get_time
 def main():
   target = 600851475143
   i = 1
@@ -11,7 +12,7 @@ def main():
       target /= i
   print i
 
-
+@get_time
 def main2():
   target = 600851475143
   pri = mymath.get_primes(int(math.sqrt(target)))
@@ -26,5 +27,5 @@ def main2():
     print max_p
 
 if __name__ == '__main__':
-  exe('main()')
-  exe('main2()')
+  main()
+  main2()

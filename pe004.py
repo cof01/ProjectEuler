@@ -1,5 +1,5 @@
 # coding: utf-8
-from mytime import exe
+from mytools import get_time
 
 def main():
   (i,j)=(999,999)
@@ -66,7 +66,7 @@ def for3():
     ans = max([i*j for i in L for j in L[999-i:] if str(i*j) == str(i*j)[::-1]])
     #print ans
     
-    
+@get_time
 def from999999():
     seed = 999
     max = 999
@@ -88,7 +88,7 @@ def from999999():
             break
         else:
             seed -= 1
-    #print ans
+    print ans
 
 def erat_approach():
   tl = [False]*(10**6)
@@ -103,7 +103,5 @@ def erat_approach():
   print n
   
 if __name__ == '__main__':
-  num = 100
-  main()
-  #for func in ['main()','while1()','while2()','for1()','for2()','for3()','from999999()','erat_approach()']:
-  #  exe(func,num)
+  from999999()
+  

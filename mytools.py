@@ -59,8 +59,8 @@ def get_time(func):
     s = time.time()
     result = func(*args,**kwargs)
     e = time.time()
-    logging.info('%s finish. time:%.5f' % (func.__name__, e-s))
-    print '%s finish. time:%.5f' % (func.__name__, e-s)
+    logging.info('%s %s finish. time:%.5f' % (sys.argv[0], func.__name__, e-s))
+    print '%s %s finish. time:%.5f' % (sys.argv[0], func.__name__, e-s)
     return result
   return wrapper
   

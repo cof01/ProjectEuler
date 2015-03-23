@@ -1,8 +1,9 @@
 # coding: utf-8
 from mymath import lcm
 import mymath
-from mytime import exe
+from mytools import get_time
 
+@get_time
 def main():
   max = 20
   i = 6
@@ -10,7 +11,7 @@ def main():
     i = lcm(i,j)
   print i
 
-
+@get_time
 def main2():
   max = 20
   pri = mymath.get_primes(max)
@@ -19,8 +20,9 @@ def main2():
     num2 = mymath.factor_dict(i,pri)
     num1 = mymath.lcm_dict(num1,num2)
   ans = mymath.dict2num(num1)
-  #print ans
-  
+  print ans
+
+@get_time
 def main3():
   max = 20
   #20‚Ü‚Å‚Ì‘f”—ñ‚ğ¶¬
@@ -36,8 +38,9 @@ def main3():
       i+=1
     j+=1
 
-  #print ans 
+  print ans 
   
 if __name__ == '__main__':
-  num = 10000
   main()
+  main2()
+  main3()
